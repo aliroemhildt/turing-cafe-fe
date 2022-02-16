@@ -1,9 +1,11 @@
 import React from 'react';
+import Card from '../Card/Card.js'
 
 const Reservations = ({ reservations }) => {
   const allReservations = reservations.map(res => {
     return (
       <Card
+        key={res.id}
         id={res.id}
         name={res.name}
         date={res.date}
@@ -12,7 +14,6 @@ const Reservations = ({ reservations }) => {
       />
     )
   })
-  // need to fetch reservations in app and pass them down
 
   return (
     <section>
@@ -20,3 +21,5 @@ const Reservations = ({ reservations }) => {
     </section>
   );
 }
+
+export default Reservations;
