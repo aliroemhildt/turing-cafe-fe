@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
 class App extends Component {
   render() {
     return (
@@ -10,7 +11,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+
         </div>
       </div>
     )
