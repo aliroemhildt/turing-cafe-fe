@@ -16,7 +16,7 @@ class App extends Component {
     this.getReservations();
   }
 
-  getReservations =() => {
+  getReservations = () => {
     return fetch('http://localhost:3001/api/v1/reservations')
       .then(response => response.json())
       .then(data => this.setState({reservations: data}))
@@ -38,15 +38,28 @@ class App extends Component {
       })
   }
 
+  deleteReservation = (e) => {
+    const id = parseInt(e.target.id);
+
+    return fetch(`http://localhost:3001/api/v1/reservations/${id}`, {method: 'DELETE'})
+      .then(response => response.json())
+      .then(data => this.setState({reservations: data}))
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <Form addReservation={this.addReservation}/>
+          <Form
+            addReservation={this.addReservation}
+          />
         </div>
         <div className='resy-container'>
-          <Reservations reservations={this.state.reservations} />
+          <Reservations
+            reservations={this.state.reservations}
+            deleteReservation={this.deleteReservation}
+          />
         </div>
       </div>
     )
