@@ -24,8 +24,7 @@ describe('Turing Cafe landing page', () => {
     cy.get('button:first')
       .should('have.text', 'Make Reservation')
 
-    cy.get('.reservations')
-      .find('.card')
+    cy.get('.card')
       .should('have.length', 9)
 
     cy.get('.card:first')
