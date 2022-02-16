@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card.js'
+import './Reservations.css';
 
 const Reservations = ({ reservations }) => {
   const allReservations = reservations.map(res => {
@@ -16,7 +17,7 @@ const Reservations = ({ reservations }) => {
   })
 
   return (
-    <section>
+    <section className='reservations'>
       { allReservations }
     </section>
   );
