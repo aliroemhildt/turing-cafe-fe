@@ -1,0 +1,12 @@
+input {
+  width: 175px;
+  height: 20px;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
