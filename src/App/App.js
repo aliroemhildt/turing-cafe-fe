@@ -13,6 +13,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.getReservations();
+  }
+
+  getReservations =() => {
     return fetch('http://localhost:3001/api/v1/reservations')
       .then(response => response.json())
       .then(data => this.setState({reservations: data}))
@@ -20,6 +24,18 @@ class App extends Component {
 
   addReservation = (newRes) => {
     this.setState({reservations: [...this.state.reservations, newRes]});
+    return fetch('http://localhost:3001/api/v1/reservations',{
+      method: 'POST',
+      body: JSON.stringify(newRes),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.getReservations();
+      })
   }
 
   render() {
